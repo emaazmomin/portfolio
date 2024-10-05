@@ -1,3 +1,4 @@
 export const AppProperties={
-loca:"http://192.168.130.182:5000"
+loca:"https://portfolio-server-mu-gray.vercel.app"
+// loca:"http://localhost:5000"
 }

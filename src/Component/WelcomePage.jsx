@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaLinkedin, FaGithub, FaDownload } from "react-icons/fa";
-import { MdEmail, MdOutlineJavascript, MdWhatsapp } from "react-icons/md";
+import { MdEmail, MdWhatsapp } from "react-icons/md";
 import SkillBar from "./SkillBar";
 import ProjectCard from "./ProjectCard";
 import myPic from "../images/emaz.jpeg";
