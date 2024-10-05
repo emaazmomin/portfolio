@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaLinkedin, FaGithub, FaDownload } from "react-icons/fa";
 import { MdEmail, MdWhatsapp } from "react-icons/md";
 import SkillBar from "./SkillBar";
@@ -20,7 +20,9 @@ import { AppProperties } from "../AppProperties";
 
 const WelcomePage = () => {
   const loca = AppProperties.loca;
+  const [loading, setLoading] = useState(false);
   const handleDownload = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(`${loca}/download-resume`, {
         responseType: "blob",
@@ -35,7 +37,9 @@ const WelcomePage = () => {
 
       fileLink.click();
       fileLink.remove();
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error("Error downloading the PDF:", error);
     }
   };
@@ -60,13 +64,20 @@ const WelcomePage = () => {
             <p className="text-xl mb-6 animate-fade-in-up">
               Full Stack Developer at Cloudsmaya Services Pvt. Ltd.
             </p>
-            <button
-              className="bg-white text-blue-600 font-bold py-2 px-4 rounded-full inline-flex items-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-100"
-              onClick={handleDownload}
-            >
-              <FaDownload className="mr-2" />
-              Download Resume
-            </button>
+            {!loading ? (
+              <button
+                className="bg-white text-blue-600 font-bold py-2 px-4 rounded-full inline-flex items-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-100"
+                onClick={handleDownload}
+              >
+                <FaDownload className="mr-2" />
+                Download Resume
+              </button>
+            ) : (
+              <button className="bg-white text-blue-600 font-bold py-2 px-4 rounded-full inline-flex items-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-100">
+                <span className="loading-spinner w-5 h-5 border-4 border-t-transparent border-blue-700 border-solid rounded-full animate-spin me-2"></span>
+                Downloading Resume
+              </button>
+            )}
           </div>
           <div className="md:w-1/2">
             <img
