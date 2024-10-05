@@ -5,6 +5,7 @@ import SkillBar from "./SkillBar";
 import ProjectCard from "./ProjectCard";
 import myPic from "../images/emaz.jpeg";
 import mufama from "../images/mufama.jpg";
+import portfolio from "../images/portfolio.jpg";
 import react from "../images/logo512.png";
 import js from "../images/js.png";
 import sboot from "../images/springboot.png";
@@ -132,17 +133,17 @@ const WelcomePage = () => {
               image={mufama}
               link="https://www.mufama.com"
             />
-            <ProjectCard
+            {/* <ProjectCard
               title="Mufma"
               description="A social media management tool for businesses."
               image="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c29jaWFsJTIwbWVkaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
               link="https://www.mufma.com"
-            />
+            /> */}
             <ProjectCard
               title="Portfolio Website"
               description="A personal portfolio website showcasing my skills and projects."
-              image="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydGZvbGlvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-              link="#"
+              image={portfolio}
+              // image="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydGZvbGlvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
             />
           </div>
         </div>
