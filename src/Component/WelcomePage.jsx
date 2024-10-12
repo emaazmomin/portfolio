@@ -19,11 +19,13 @@ import ContactForm from "./ContactForm";
 import axios from "axios";
 import { AppProperties } from "../AppProperties";
 import { TypeAnimation } from "react-type-animation";
+import Footer from "./Footer";
 
 const WelcomePage = () => {
   const loca = AppProperties.loca;
   const [gotLoca, setGotLoca] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [visitors, setVisitors] = useState(0);
   const handleDownload = async () => {
     setLoading(true);
     try {
@@ -43,7 +45,6 @@ const WelcomePage = () => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.error("Error downloading the PDF:", error);
     }
   };
 
@@ -62,7 +63,7 @@ const WelcomePage = () => {
       axios
         .get(`${loca}`)
         .then((res) => {
-          console.log(res.data);
+          setVisitors(res.data.Vistors);
         })
         .catch((error) => {
           console.log(error);
@@ -163,17 +164,10 @@ const WelcomePage = () => {
               image={mufama}
               link="https://www.mufama.com"
             />
-            {/* <ProjectCard
-              title="Mufma"
-              description="A social media management tool for businesses."
-              image="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c29jaWFsJTIwbWVkaWF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-              link="https://www.mufma.com"
-            /> */}
             <ProjectCard
               title="Portfolio Website"
               description="A personal portfolio website showcasing my skills and projects."
               image={portfolio}
-              // image="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydGZvbGlvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
             />
           </div>
         </div>
@@ -282,6 +276,7 @@ const WelcomePage = () => {
           </div>
         </div>
       </section>
+      <Footer visitors={visitors} />
     </div>
   );
 };
