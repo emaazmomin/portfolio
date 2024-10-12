@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaLinkedin, FaGithub, FaDownload } from "react-icons/fa";
 import { MdEmail, MdWhatsapp } from "react-icons/md";
 import SkillBar from "./SkillBar";
@@ -18,14 +18,16 @@ import css from "../images/css.png";
 import ContactForm from "./ContactForm";
 import axios from "axios";
 import { AppProperties } from "../AppProperties";
+import { TypeAnimation } from "react-type-animation";
 
 const WelcomePage = () => {
   const loca = AppProperties.loca;
+  const [gotLoca, setGotLoca] = useState(false);
   const [loading, setLoading] = useState(false);
   const handleDownload = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${loca}/download-resume`, {
+      const response = await axios.get(`${loca}/portfolio/download-resume`, {
         responseType: "blob",
       });
 
@@ -50,18 +52,46 @@ const WelcomePage = () => {
     const url = `https://wa.me/9657116466?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
+  useEffect(() => {
+    if (loca) {
+      setGotLoca(true);
+    }
+  }, [loca]);
+  useEffect(() => {
+    if (gotLoca) {
+      axios
+        .get(`${loca}`)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [gotLoca]);
 
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Hero Section */}
-      <section className="bg-black text-white py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-black text-white py-10 px-4 sm:px-6 lg:px-8">
         {/* <section className="bg-blue-600 text-white py-20 px-4 sm:px-6 lg:px-8"> */}
-        <div className="max-w-7xl mx-auto flex sm:flex-col items-center justify-between">
+        <div className="max-w-7xl mx-auto flex sm:flex-col items-start sm:items-center justify-between">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <h1 className="text-4xl font-bold mb-4 animate-fade-in-down">
-              Welcome to my Portfolio,
-              <br /> I'm Momin Mohd Emaz Ishtiyaque
-            </h1>
+            <div className="sm:h-20">
+              <h1 className="text-3xl font-bold mb-4 animate-fade-in-down">
+                <TypeAnimation
+                  sequence={[
+                    "Welcome to my Portfolio",
+                    1000, // wait 1s before replacing "Mice" with "Hamsters"
+                    "I'm Momin Mohd Emaz Ishtiyaque",
+                    2000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
+              </h1>
+            </div>
             <p className="text-xl mb-6 animate-fade-in-up">
               Full Stack Developer at Cloudsmaya Services Pvt. Ltd.
             </p>
@@ -84,7 +114,7 @@ const WelcomePage = () => {
             <img
               src={myPic}
               alt="ABC"
-              className="rounded-full w-64 h-64 sm:w-52 sm:h-52 object-cover mx-auto animate-fade-in"
+              className="rounded-full w-24 h-24 sm:h-28 sm:w-28 object-cover mx-auto animate-fade-in"
             />
           </div>
         </div>
@@ -126,7 +156,7 @@ const WelcomePage = () => {
       <section className="bg-gray-200 py-10 px-4 sm:px-3 lg:px-8" id="projects">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">My Projects</h2>
-          <div className="grid grid-cols-3 sm:grid-cols-1 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-1 gap-8">
             <ProjectCard
               title="Mufama"
               description="An e-commerce platform for fashion accessories."

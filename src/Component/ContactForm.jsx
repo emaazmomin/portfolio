@@ -34,7 +34,7 @@ export default function ContactForm() {
     e.preventDefault();
     setLoading(true);
     axios
-      .post(`${loca}/send-email`, formData, {
+      .post(`${loca}/portfolio/send-email`, formData, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -45,7 +45,7 @@ export default function ContactForm() {
         setLoading(false);
       })
       .catch((error) => {
-        showAlertFn("SOmething went wrong", "error", true);
+        showAlertFn("Something went wrong", "error", true);
         setResponse(JSON.stringify(error));
         setLoading(false);
       });
