@@ -26,6 +26,7 @@ const WelcomePage = () => {
   const [gotLoca, setGotLoca] = useState(false);
   const [loading, setLoading] = useState(false);
   const [visitors, setVisitors] = useState(0);
+  const [reVisitors, setReVisitors] = useState(0);
   const handleDownload = async () => {
     setLoading(true);
     try {
@@ -61,9 +62,10 @@ const WelcomePage = () => {
   useEffect(() => {
     if (gotLoca) {
       axios
-        .get(`${loca}`)
+        .get(`${loca}/visited`)
         .then((res) => {
-          setVisitors(res.data.Vistors);
+          setVisitors(res.data.Visitors);
+          setReVisitors(res.data.ReVisitors);
         })
         .catch((error) => {
           console.log(error);
@@ -276,7 +278,7 @@ const WelcomePage = () => {
           </div>
         </div>
       </section>
-      <Footer visitors={visitors} />
+      <Footer visitors={visitors} reVisitors={reVisitors} />
     </div>
   );
 };

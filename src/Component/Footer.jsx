@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Footer({visitors}) {
+export default function Footer({ visitors, reVisitors }) {
   return (
     <footer class="bg-white shadow dark:bg-gray-900">
       <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
@@ -43,7 +43,8 @@ export default function Footer({visitors}) {
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" /> */}
         <span class="block text-md text-gray-500 text-center dark:text-gray-400">
-        Total Visitors: {visitors}
+          Total Visitors: {visitors}     {"   "}
+          Total Re-Visitors: {reVisitors}
         </span>
       </div>
     </footer>
