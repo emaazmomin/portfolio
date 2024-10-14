@@ -16,6 +16,7 @@ import bootstrap from "../images/bootstrap.png";
 import html from "../images/html.png";
 import css from "../images/css.png";
 import mongodb from "../images/mongodb.jpg";
+import node from "../images/nodejs.png";
 import ContactForm from "./ContactForm";
 import axios from "axios";
 import { AppProperties } from "../AppProperties";
@@ -216,12 +217,13 @@ const WelcomePage = () => {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">My Skills</h2>
           <div className="bg-white shadow-lg rounded-lg p-8 sm:p-5">
-            <div className="grid grid-cols-3 sm:grid-cols-2 gap-8 place-items-center">
+            <div className="grid grid-cols-3 sm:grid-cols-2 gap-8 place-items-start">
               <SkillBar logo={react} skill="React.js" />
               <SkillBar logo={sboot} skill="Spring Boot" />
               <SkillBar logo={mongodb} skill="MongoDB" />
               <SkillBar logo={mysql} skill="MySQL" />
               <SkillBar logo={js} skill="JavaScript" />
+              <SkillBar logo={node} skill="Node.js" />
               <SkillBar logo={ex} skill="Express.js" />
               <SkillBar logo={html} skill="HTML" />
               <SkillBar logo={css} skill="CSS" />
