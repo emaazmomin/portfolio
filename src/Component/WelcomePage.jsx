@@ -263,7 +263,7 @@ const WelcomePage = () => {
                 <p className="flex items-center text-xl">
                   <FaGithub className="mr-2" />
                   <a
-                    href="https://github.com/abc"
+                    href="https://github.com/emaazmomin"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
