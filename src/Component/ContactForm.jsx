@@ -9,7 +9,6 @@ export default function ContactForm() {
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState("");
   const [alertMsg, setAlertMsg] = useState("");
-  const [response, setResponse] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -45,8 +44,11 @@ export default function ContactForm() {
         setLoading(false);
       })
       .catch((error) => {
-        showAlertFn("Something went wrong", "error", true);
-        setResponse(JSON.stringify(error));
+        if (error.status === 429) {
+          showAlertFn("You can send 1 message per minute", "error", true);
+        } else {
+          showAlertFn("Something went wrong", "error", true);
+        }
         setLoading(false);
       });
   };
