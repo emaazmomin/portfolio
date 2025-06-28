@@ -144,7 +144,7 @@ const WelcomePage = () => {
               <div className="bg-gray-100 p-4 rounded-lg w-96 sm:w-full">
                 <h3 className="font-bold mb-2 text-xl">Experience</h3>
                 <p className="text-lg">
-                  1+ years in Full Stack Development at Cloudsmaya Services
+                  2 years in Full Stack Development at Cloudsmaya Services
                   Private Limited
                 </p>
               </div>
