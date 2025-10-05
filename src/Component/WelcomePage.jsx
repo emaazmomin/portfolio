@@ -3,9 +3,9 @@ import { FaLinkedin, FaGithub, FaDownload } from "react-icons/fa";
 import { MdEmail, MdWhatsapp } from "react-icons/md";
 import SkillBar from "./SkillBar";
 import ProjectCard from "./ProjectCard";
-import myPic from "../images/emaz.jpeg";
+import investmaya from "../images/investmaya.png";
 import mufama from "../images/mufama.jpg";
-import portfolio from "../images/portfolio.jpg";
+import portfolio from "../images/portfolio.png";
 import react from "../images/logo512.png";
 import js from "../images/js.png";
 import sboot from "../images/springboot.png";
@@ -78,28 +78,32 @@ const WelcomePage = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Hero Section */}
-      <section className="bg-black text-white py-10 px-4 sm:px-6 lg:px-8">
-        {/* <section className="bg-blue-600 text-white py-20 px-4 sm:px-6 lg:px-8"> */}
-        <div className="max-w-7xl mx-auto flex sm:flex-col items-start sm:items-center justify-between">
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            <div className="sm:h-20">
-              <h1 className="text-3xl font-bold mb-4 animate-fade-in-down">
-                <TypeAnimation
-                  sequence={[
-                    "Welcome to my Portfolio",
-                    1000, // wait 1s before replacing "Mice" with "Hamsters"
-                    "I'm Momin Mohd Emaz Ishtiyaque",
-                    2000,
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  repeat={Infinity}
-                />
-              </h1>
-            </div>
-            <p className="text-xl mb-6 animate-fade-in-up">
-              Full Stack Developer at Cloudsmaya Services Pvt. Ltd.
-            </p>
+
+      <section className={`bg-[url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1600&q=80')]
+ bg-cover bg-center bg-no-repeat relative text-white py-10 px-4 sm:px-6 lg:px-8 h-80 `}>
+        {/* Overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black/70"></div>
+
+        <div className="relative flex flex-col items-center justify-center h-full">
+          <div className="sm:h-20">
+            <h1 className="text-3xl font-bold mb-4 animate-fade-in-down text-center">
+              <TypeAnimation
+                sequence={[
+                  "Welcome to my Portfolio",
+                  1000,
+                  "I'm Momin Mohd Emaz Ishtiyaque",
+                  2000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            </h1>
+          </div>
+          <p className="text-xl mb-6 animate-fade-in-up text-center">
+            Full Stack Developer at Cloudsmaya Services Pvt. Ltd.
+          </p>
+          <div className="text-center">
             {!loading ? (
               <button
                 className="bg-white text-blue-600 font-bold py-2 px-4 rounded-full inline-flex items-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-100"
@@ -115,15 +119,47 @@ const WelcomePage = () => {
               </button>
             )}
           </div>
-          <div className="md:w-1/2">
-            <img
-              src={myPic}
-              alt="ABC"
-              className="rounded-full w-24 h-24 sm:h-28 sm:w-28 object-cover mx-auto animate-fade-in"
-            />
-          </div>
         </div>
       </section>
+
+      {/* <section className="bg-black text-white py-10 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center">
+            <div className="sm:h-20">
+              <h1 className="text-3xl font-bold mb-4 animate-fade-in-down text-center">
+                <TypeAnimation
+                  sequence={[
+                    "Welcome to my Portfolio",
+                    1000, // wait 1s before replacing "Mice" with "Hamsters"
+                    "I'm Momin Mohd Emaz Ishtiyaque",
+                    2000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
+              </h1>
+            </div>
+            <p className="text-xl mb-6 animate-fade-in-up text-center">
+              Full Stack Developer at Cloudsmaya Services Pvt. Ltd.
+            </p>
+            <div className="text-center">
+              {!loading ? (
+                <button
+                  className="bg-white text-blue-600 font-bold py-2 px-4 rounded-full inline-flex items-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-100"
+                  onClick={handleDownload}
+                >
+                  <FaDownload className="mr-2" />
+                  Download Resume
+                </button>
+              ) : (
+                <button className="bg-white text-blue-600 font-bold py-2 px-4 rounded-full inline-flex items-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-100">
+                  <span className="loading-spinner w-5 h-5 border-4 border-t-transparent border-blue-700 border-solid rounded-full animate-spin me-2"></span>
+                  Downloading Resume
+                </button>
+              )}
+            </div>
+        </div>
+      </section> */}
 
       {/* About Section */}
       <section className="py-10 px-4 sm:px-3 lg:px-8" id="about">
@@ -161,7 +197,13 @@ const WelcomePage = () => {
       <section className="bg-gray-200 py-10 px-4 sm:px-3 lg:px-8" id="projects">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">My Projects</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-1 gap-8">
+          <div className="grid grid-cols-3 sm:grid-cols-1 gap-8">
+            <ProjectCard
+              title="InvestMaya"
+              description="Real Estate Investment Platform."
+              image={investmaya}
+              link="https://www.investmaya.com"
+            />
             <ProjectCard
               title="Mufama"
               description="An e-commerce platform for fashion accessories."
