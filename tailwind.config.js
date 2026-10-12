@@ -3,24 +3,42 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: 'class',
   theme: {
-    screens: {
-      'sm': {'max': '767px'},
-      // => @media (min-width: 640px and max-width: 767px) { ... }
-
-      'md': {'min': '768px', 'max': '1023px'},
-      // => @media (min-width: 768px and max-width: 1023px) { ... }
-
-      'lg': {'min': '1024px', 'max': '1279px'},
-      // => @media (min-width: 1024px and max-width: 1279px) { ... }
-
-      'xl': {'min': '1280px', 'max': '1535px'},
-      // => @media (min-width: 1280px and max-width: 1535px) { ... }
-
-      '2xl': {'min': '1536px'},
-      // => @media (min-width: 1536px) { ... }
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'Inter', 'sans-serif'],
+        mono: ['Fira Code', 'monospace'],
+      },
+      colors: {
+        surface: {
+          50: '#f8fafc',
+          100: '#0f1420',
+          200: '#151c2e',
+          300: '#1e2942',
+          400: '#334155',
+        },
+        brand: {
+          cyan: '#06b6d4',
+          emerald: '#10b981',
+          indigo: '#6366f1',
+          violet: '#8b5cf6',
+        }
+      },
+      animation: {
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        }
+      }
     },
   },
   plugins: [],
 }
+
 
