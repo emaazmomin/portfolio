@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.e13aa87d.css",
-    "main.js": "/portfolio/static/js/main.b1b3023d.js",
+    "main.css": "/portfolio/static/css/main.b4dfb318.css",
+    "main.js": "/portfolio/static/js/main.ec043aa1.js",
     "static/js/453.68010203.chunk.js": "/portfolio/static/js/453.68010203.chunk.js",
     "static/media/investmaya_preview.jpg": "/portfolio/static/media/investmaya_preview.1cc546afb72f39b70733.jpg",
     "static/media/autoportal_preview.jpg": "/portfolio/static/media/autoportal_preview.2b8e5286d4f4ca67258d.jpg",
@@ -11,12 +11,12 @@
     "static/media/wivachat_web.png": "/portfolio/static/media/wivachat_web.e593034cc83ed8758826.png",
     "static/media/wivachat_admin.png": "/portfolio/static/media/wivachat_admin.513b64ed700f1c4e111e.png",
     "index.html": "/portfolio/index.html",
-    "main.e13aa87d.css.map": "/portfolio/static/css/main.e13aa87d.css.map",
-    "main.b1b3023d.js.map": "/portfolio/static/js/main.b1b3023d.js.map",
+    "main.b4dfb318.css.map": "/portfolio/static/css/main.b4dfb318.css.map",
+    "main.ec043aa1.js.map": "/portfolio/static/js/main.ec043aa1.js.map",
     "453.68010203.chunk.js.map": "/portfolio/static/js/453.68010203.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e13aa87d.css",
-    "static/js/main.b1b3023d.js"
+    "static/css/main.b4dfb318.css",
+    "static/js/main.ec043aa1.js"
   ]
 }
