@@ -15,6 +15,7 @@ export default function WelcomePage() {
   const loca = AppProperties.loca;
   const [visitors, setVisitors] = useState(0);
   const [reVisitors, setReVisitors] = useState(0);
+  const [downloads, setDownloads] = useState(0);
 
   useEffect(() => {
     if (loca) {
@@ -24,12 +25,24 @@ export default function WelcomePage() {
           if (res.data) {
             setVisitors(res.data.Visitors || 0);
             setReVisitors(res.data.ReVisitors || 0);
+            if (res.data.Downloads !== undefined) {
+              setDownloads(res.data.Downloads);
+            }
           }
         })
         .catch((error) => {
           console.warn("Visitor analytics tracking notice:", error.message);
         });
     }
+
+    const handleResumeDownloaded = () => {
+      setDownloads((prev) => (typeof prev === "number" ? prev + 1 : 1));
+    };
+
+    window.addEventListener("resume-downloaded", handleResumeDownloaded);
+    return () => {
+      window.removeEventListener("resume-downloaded", handleResumeDownloaded);
+    };
   }, [loca]);
 
   return (
@@ -44,7 +57,11 @@ export default function WelcomePage() {
         <Education />
         <Contact />
       </main>
-      <Footer visitors={visitors} reVisitors={reVisitors} />
+      <Footer
+        visitors={visitors}
+        reVisitors={reVisitors}
+        downloads={downloads}
+      />
     </div>
   );
 }

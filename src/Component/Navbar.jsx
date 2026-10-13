@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaBriefcase, FaEnvelope } from "react-icons/fa";
+import { FaBars, FaTimes, FaBriefcase, FaEnvelope, FaDownload } from "react-icons/fa";
+import { downloadResume } from "../utils/downloadResume";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,6 +74,14 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              onClick={downloadResume}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 hover:border-cyan-400 transition-all shadow-sm"
+            >
+              <FaDownload className="text-cyan-400 text-xs" />
+              Resume
+            </button>
             <a
               href="#contact"
               className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-xl group bg-gradient-to-br from-cyan-500 via-indigo-500 to-emerald-400 group-hover:from-cyan-500 group-hover:to-emerald-400 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
@@ -86,6 +95,15 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-2">
+            <button
+              type="button"
+              onClick={downloadResume}
+              className="p-2 text-xs font-semibold rounded-lg bg-slate-800 border border-slate-700 text-cyan-400 hover:bg-slate-700 transition-colors"
+              title="Download Resume"
+              aria-label="Download Resume"
+            >
+              <FaDownload className="w-3.5 h-3.5" />
+            </button>
             <a
               href="#contact"
               className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-colors"
@@ -116,11 +134,22 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-            <div className="pt-3 border-t border-slate-800/80 mt-2">
+            <div className="pt-3 border-t border-slate-800/80 mt-2 space-y-2">
+              <button
+                type="button"
+                onClick={() => {
+                  downloadResume();
+                  handleLinkClick();
+                }}
+                className="w-full py-2.5 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-sm text-center flex items-center justify-center gap-2 hover:bg-slate-700 transition-colors"
+              >
+                <FaDownload className="text-cyan-400 text-xs" />
+                Download Resume
+              </button>
               <a
                 href="#contact"
                 onClick={handleLinkClick}
-                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold text-center flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20"
+                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold text-center flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 text-sm"
               >
                 <FaEnvelope className="text-sm" />
                 Let's Talk / Hire Me

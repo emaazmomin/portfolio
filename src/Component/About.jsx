@@ -38,7 +38,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 relative">
+    <section id="about" className="pt-20 md:pt-28 pb-8 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -57,7 +57,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Narrative Column */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-xl relative overflow-hidden">
+            <div className="p-4 rounded-3xl bg-slate-900/60 border border-slate-800 backdrop-blur-md shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 blur-3xl pointer-events-none rounded-full" />
 
               <h3 className="text-2xl font-bold font-display text-white mb-4">

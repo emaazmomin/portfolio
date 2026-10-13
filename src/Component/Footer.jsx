@@ -1,8 +1,8 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaArrowUp, FaHeart, FaEye, FaUsers } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaArrowUp, FaHeart, FaEye, FaUsers, FaDownload } from "react-icons/fa";
 import { MdWhatsapp, MdEmail } from "react-icons/md";
 
-export default function Footer({ visitors, reVisitors }) {
+export default function Footer({ visitors, reVisitors, downloads }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -131,6 +131,15 @@ export default function Footer({ visitors, reVisitors }) {
                 </span>
                 <span className="font-mono font-bold text-white px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700">
                   {reVisitors ?? "--"}
+                </span>
+              </div>
+
+              <div className="flex items-center justify-between text-xs pt-2 border-t border-slate-800/80">
+                <span className="flex items-center gap-2 text-slate-400">
+                  <FaDownload className="text-violet-400 text-sm" /> Resume Downloads
+                </span>
+                <span className="font-mono font-bold text-white px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700">
+                  {downloads ?? "--"}
                 </span>
               </div>
             </div>

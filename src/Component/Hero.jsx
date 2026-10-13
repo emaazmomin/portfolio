@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import {
   FaGithub,
@@ -10,6 +10,7 @@ import {
   FaServer,
   FaDatabase,
   FaBriefcase,
+  FaDownload,
 } from "react-icons/fa";
 import { MdWhatsapp } from "react-icons/md";
 import {
@@ -21,8 +22,17 @@ import {
   SiJavascript,
 } from "react-icons/si";
 import emazPhoto from "../images/emaz_2.jpeg";
+import { downloadResume } from "../utils/downloadResume";
 
 export default function Hero() {
+  const [downloading, setDownloading] = useState(false);
+
+  const handleResumeDownload = async () => {
+    setDownloading(true);
+    await downloadResume();
+    setDownloading(false);
+  };
+
   const handleWhatsAppClick = () => {
     const message = "Hello Emaz, I viewed your portfolio and would like to discuss an opportunity!";
     window.open(`https://wa.me/9657116466?text=${encodeURIComponent(message)}`, "_blank");
@@ -31,7 +41,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden"
+      className="relative pt-32 pb-8 md:pt-40 overflow-hidden"
     >
       {/* Background ambient lighting and grid pattern */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -148,6 +158,25 @@ export default function Hero() {
                 <FaEnvelope className="text-cyan-400 text-sm" />
                 <span>Contact Me</span>
               </a>
+
+              <button
+                type="button"
+                onClick={handleResumeDownload}
+                disabled={downloading}
+                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-white bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:-translate-y-0.5 shadow-md shadow-black/20"
+              >
+                {downloading ? (
+                  <>
+                    <span className="w-4 h-4 border-2 border-t-transparent border-cyan-400 rounded-full animate-spin"></span>
+                    <span>Downloading...</span>
+                  </>
+                ) : (
+                  <>
+                    <FaDownload className="text-cyan-400 text-sm" />
+                    <span>Download Resume</span>
+                  </>
+                )}
+              </button>
 
               <a
                 href="#contact"
